@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "watch-client": "cross-env NODE_ENV=development node ./app",
+    "watch-client": "cross-env NODE_ENV=dev node ./app",
     "watch-client-prod": "cross-env NODE_ENV=production node ./app"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
+    "bluebird": "^3.5.5",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",

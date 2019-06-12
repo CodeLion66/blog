@@ -6,6 +6,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var session = require('express-session');
 
+var { database } = require('./config/index');
 var mainRouter = require('./routes/main');
 var adminRouter = require('./routes/admin');
 
@@ -49,13 +50,23 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
 app.set('port', port);
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+// 链接数据库并监听端口
+var url = `mongodb://${database.dbHost}:${database.dbPort}/blog`;
 
+mongoose.Promise = require('bluebird');
+mongoose.connect(url, function (err) {
+    if (err) {
+        console.log(err, "数据库连接失败");
+        return;
+    }
+    console.log('数据库连接成功');
+
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening', onListening);
+});
 
 
 
