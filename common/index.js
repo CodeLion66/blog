@@ -1,4 +1,5 @@
 const errCode = require('./message/errorCode');
+const util = require('./util/util');
 
 // 发送json
 function sendJson(res, errcode, data = []) {
@@ -15,5 +16,6 @@ function sendJson(res, errcode, data = []) {
 
 module.exports = {
     errCode,
-    sendJson
+    sendJson,
+    util
 }
