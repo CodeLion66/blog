@@ -15,7 +15,7 @@ var adminRouter = require('./routes/admin');
 var app = express();
 var debug = require('debug')('express-demo:server');
 var http = require('http');
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3030');
 var server = http.createServer(app);
 
 // view engine setup
